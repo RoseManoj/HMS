@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <link rel="stylesheet" href="logincss.css">
+</head>
+<body>
+
+<div class="form_wrapper">
+    <div class="title_container">
+        <h2>Login/Signup</h2>
+    </div>
+
+    <div class="tab_container">
+        <button class="tab_button active" id="loginTab">Login</button>
+        <button class="tab_button" id="signupTab">Signup</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="active">
+        <div class="input_field">
+            <span><i class="fas fa-user"></i></span>
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input_field">
+            <span><i class="fas fa-lock"></i></span>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <input type="submit" value="Login">
+
+        <!-- Forgot Password Link -->
+        <div class="forgot_password">
+            <a href="#" id="forgotPasswordLink">Forgot your password?</a>
+        </div>
+    </form>
+
+    <!-- Signup Form -->
+    <form id="signupForm">
+        <div class="input_field">
+            <span><i class="fas fa-user"></i></span>
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input_field">
+            <span><i class="fas fa-envelope"></i></span>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input_field">
+            <span><i class="fas fa-lock"></i></span>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <input type="submit" value="Signup">
+    </form>
+</div>
+
+<!-- Forgot Password Modal -->
+<div id="forgotPasswordModal" class="modal">
+    <div class="modal_content">
+        <span class="close">&times;</span>
+        <h3>Reset Your Password</h3>
+        <p>Please enter your email address to receive a link to reset your password.</p>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="button" id="sendResetLink">Send Reset Link</button>
+    </div>
+</div>
+
+<!-- Credit Section -->
+<div class="credit">
+    <p>Powered by <a href="#">Your Company</a></p>
+</div>
+
+<!-- JavaScript for form switching and modal -->
+<script>
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+    const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+    const closeModal = document.querySelector('.modal .close');
+
+    loginTab.addEventListener('click', function() {
+        loginTab.classList.add('active');
+        signupTab.classList.remove('active');
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+    });
+
+    signupTab.addEventListener('click', function() {
+        signupTab.classList.add('active');
+        loginTab.classList.remove('active');
+        signupForm.classList.add('active');
+        loginForm.classList.remove('active');
+    });
+
+    // Open forgot password modal
+    forgotPasswordLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        forgotPasswordModal.style.display = 'block';
+    });
+
+    // Close modal when 'X' is clicked
+    closeModal.addEventListener('click', function() {
+        forgotPasswordModal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside of the modal
+    window.addEventListener('click', function(event) {
+        if (event.target === forgotPasswordModal) {
+            forgotPasswordModal.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
