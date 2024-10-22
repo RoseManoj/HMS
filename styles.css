@@ -42,16 +42,23 @@
   color: var(--text-light);
 }
 
-.btn {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  color: var(--white);
-  background-color: var(--secondary-color);
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
+
+
+
+  .btn {
+    background-color: #FFA500; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Increase space above the button */
+  }
+  
+
 
 .section__nav {
   margin-left: auto;
